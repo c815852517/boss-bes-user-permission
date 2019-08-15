@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.boss.bes</groupId>
+    <artifactId>user.permission.parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>boss-bes-user-permission-dao</module>
+        <module>boss-bes-user-permission-pojo</module>
+        <module>boss-bes-user-permission-service</module>
+        <module>boss-bes-user-permission-utils</module>
+    </modules>
+
+    <dependencies>
+                <dependency>
+                    <groupId>com.bosssoft.hr.train</groupId>
+                    <artifactId>boss-bes-spring-boot-starter</artifactId>
+                    <version>1.0-SNAPSHOT</version>
+                </dependency>
+<!--        <dependency>-->
+        <!--            <groupId>com.bosssoft.hr.train</groupId>-->
+<!--            <artifactId>boss-bes-core-data</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.bosssoft.hr.train</groupId>-->
+<!--            <artifactId>boss-bes-core-dao-aop</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.bosssoft.hr.train</groupId>-->
+<!--            <artifactId>boss-bes-common-utils</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.bosssoft.hr.train</groupId>-->
+<!--            <artifactId>boss-bes-common-logging</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.slf4j</groupId>-->
+<!--            <artifactId>slf4j-log4j12</artifactId>-->
+<!--            <version>1.7.25</version>-->
+<!--            <scope>runtime</scope>-->
+<!--        </dependency>-->
+
+    </dependencies>
+</project>

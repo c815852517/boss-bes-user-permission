@@ -1,5 +1,11 @@
 package com.bosssoft.bes.user.permission.utils;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTCreator;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.Claim;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.bosssoft.bes.user.permission.pojo.vo.UserPermission;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
@@ -31,67 +37,64 @@ public class JwtUtil {
     private static String ORGANIZATION_ID = "orgId";
     private static String ROLE_ID = "roleId";
     /**
-     * 由字符串生成加密key
-     *
-     * @return
-     */
-    public static SecretKey generalKey(){
-        byte[] encodedKey = Base64.decodeBase64(KEY);
-        SecretKeySpec key = new SecretKeySpec(encodedKey, 0, encodedKey.length, "AES");
-        return key;
-    }
-
-    /**
      * 创建token
      * @param userPermission token中私有声明实体
      * @return token
      */
     public static String createJwt(UserPermission userPermission) {
-        // 生成JWT过期的时间
+        //发布时间
         long nowMillis = System.currentTimeMillis();
         Date now = new Date(nowMillis);
+        // 生成JWT过期的时间
         long ttlMillis = nowMillis + 24L * 60L * 3600L * 1000L;
         Date expTime = new Date(ttlMillis);
         try {
             // 创建payload的私有声明（根据特定的业务需要添加，如果要拿这个做验证，一般是需要和jwt的接收方提前沟通好验证方式的）
-            Map<String, Object> claims = new HashMap<String, Object>();
-            claims.put(UID, userPermission.getUserId());
-            claims.put(ORGANIZATION_ID, userPermission.getOrgId());
-            claims.put(COMPANY_ID,userPermission.getCompanyId());
+            Map<String, String> claims = new HashMap<String, String>();
+            claims.put(UID, userPermission.getUserId().toString());
+            claims.put(ORGANIZATION_ID, userPermission.getOrgId().toString());
+            claims.put(COMPANY_ID,userPermission.getCompanyId().toString());
             claims.put(NAME,userPermission.getName());
-            claims.put(ROLE_ID,userPermission.getRoleId());
+            claims.put(ROLE_ID,userPermission.getRoleId().toString());
             // 指定签名的时候使用的签名算法，也就是header那部分，jjwt已经将这部分内容封装好了。
-            SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
-            // 生成签名的时候使用的秘钥secret，切记这个秘钥不能外露哦。它就是你服务端的私钥，在任何场景都不应该流露出去。
-            // 一旦客户端得知这个secret, 那就意味着客户端是可以自我签发jwt了。
-            SecretKey key = generalKey();
-
-            // 下面就是在为payload添加各种标准声明和私有声明了
-            JwtBuilder builder = Jwts.builder() // 这里其实就是new一个JwtBuilder，设置jwt的body
-                    .setClaims(claims)          // 如果有私有声明，一定要先设置这个自己创建的私有的声明，这个是给builder的claim赋值，一旦写在标准的声明赋值之后，就是覆盖了那些标准的声明的
-                    .setIssuedAt(now)           // iat: jwt的签发时间
-                    .setIssuer(ISSUER)          // issuer：jwt签发人
-                    .setExpiration(expTime)     //过期时间
-                    .signWith(signatureAlgorithm, key); // 设置签名使用的签名算法和签名使用的秘钥
-            return builder.compact();
+            Algorithm algorithm = Algorithm.HMAC256(KEY);
+            //创建jwt,添加发行人,发布的时间点
+            JWTCreator.Builder builder = JWT.create()
+                    .withIssuer(ISSUER)
+                    .withIssuedAt(now)
+                    .withExpiresAt(expTime);
+            //传入参数
+            claims.forEach((key,value)-> {
+                builder.withClaim(key, value);
+            });
+            //签名加密
+            String token = builder.sign(algorithm);
+            return token;
         }catch (Exception e){
             throw new RuntimeException(e);
         }
     }
 
     /**
-     * 解密jwt
-     *
-     * @param jwt
+     * 解密JWT
+     * @param token
      * @return
      * @throws Exception
      */
-    public static Claims parseJwt(String jwt) throws Exception {
-        SecretKey key = generalKey();  //签名秘钥，和生成的签名的秘钥一模一样
-        Claims claims = Jwts.parser()  //得到DefaultJwtParser
-                .setSigningKey(key)                 //设置签名的秘钥
-                .parseClaimsJws(jwt).getBody();     //设置需要解析的jwt
-        return claims;
+    public static UserPermission parseJwt(String token) throws Exception {
+        Algorithm algorithm = Algorithm.HMAC256(KEY);
+        JWTVerifier verifier = JWT.require(algorithm).withIssuer(ISSUER).build();
+        DecodedJWT jwt =  verifier.verify(token);
+        UserPermission userPermission = null;
+        Map<String, Claim> map = jwt.getClaims();
+        Map<String, String> resultMap = new HashMap<>();
+        map.forEach((k,v) -> resultMap.put(k, v.asString()));
+        userPermission.setUserId(Long.valueOf(resultMap.get(UID)));
+        userPermission.setName(resultMap.get(NAME));
+        userPermission.setCompanyId(Long.valueOf(resultMap.get(COMPANY_ID)));
+        userPermission.setOrgId(Long.valueOf(ORGANIZATION_ID));
+        userPermission.setRoleId(Long.valueOf(ROLE_ID));
+        return userPermission;
     }
 
     /**

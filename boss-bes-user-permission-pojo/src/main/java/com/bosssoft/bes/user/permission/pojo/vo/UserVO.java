@@ -35,6 +35,11 @@ public class UserVO implements Serializable {
     private String name;
 
     /**
+     * 头像
+     */
+    private String profilePicture;
+
+    /**
      * 性别
      */
     private Byte sex;
@@ -173,6 +178,14 @@ public class UserVO implements Serializable {
         this.status = status;
     }
 
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
     @Override
     public String toString() {
         return "UserVO{" +
@@ -182,6 +195,7 @@ public class UserVO implements Serializable {
                 ", code='" + code + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
+                ", profilePicture='" + profilePicture + '\'' +
                 ", sex=" + sex +
                 ", birthday=" + birthday +
                 ", tel='" + tel + '\'' +

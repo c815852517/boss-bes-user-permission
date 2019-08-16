@@ -230,4 +230,27 @@ public class Resource implements Serializable {
     public void setVersion(Long version) {
         this.version = version;
     }
+
+    @Override
+    public String toString() {
+        return "Resource{" +
+                "resourceId=" + resourceId +
+                ", positionId=" + positionId +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", parentId=" + parentId +
+                ", url='" + url + '\'' +
+                ", openImg='" + openImg + '\'' +
+                ", closeImg='" + closeImg + '\'' +
+                ", resourceType=" + resourceType +
+                ", leaf=" + leaf +
+                ", remark='" + remark + '\'' +
+                ", status=" + status +
+                ", createdBy=" + createdBy +
+                ", createdTime=" + createdTime +
+                ", updatedBy=" + updatedBy +
+                ", updatedTime=" + updatedTime +
+                ", version=" + version +
+                '}';
+    }
 }

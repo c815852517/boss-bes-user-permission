@@ -126,4 +126,19 @@ public class UserOnlineInfo implements Serializable {
     public void setStatus(Byte status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "UserOnlineInfo{" +
+                "onlineId=" + onlineId +
+                ", userId=" + userId +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", ip='" + ip + '\'' +
+                ", onlineTime=" + onlineTime +
+                ", offlineTime=" + offlineTime +
+                ", stopTime=" + stopTime +
+                ", status=" + status +
+                '}';
+    }
 }

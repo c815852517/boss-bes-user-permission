@@ -3,7 +3,8 @@ package com.bosssoft.bes.user.permission.api.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.bosssoft.bes.user.permission.pojo.vo.UserVO;
-import com.bosssoft.bes.user.permission.utils.LoginService;
+import com.bosssoft.bes.user.permission.service.LoginService;
+import com.bosssoft.bes.user.permission.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,6 +33,7 @@ public class LoginController {
         System.out.println(userVO.toString());
         ResponseBody responseBody = new ResponseBody();
         Map<String, Object> data = new HashMap<String, Object>();
+        JwtUtil.createJWT(userVO.getUserId(),userVO.getPositionId(),userVO.get);
         data.put("token","111");
         responseBody.setData(data);
         return CommonResponse.create(loginService.checkUser(userVO),responseBody);
@@ -39,6 +41,7 @@ public class LoginController {
 
     @PostMapping(value = "/getInfo")
     public CommonResponse getInfo(@RequestBody String token){
+
         return null;
     }
 

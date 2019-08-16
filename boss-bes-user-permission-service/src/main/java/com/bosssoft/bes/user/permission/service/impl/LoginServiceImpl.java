@@ -2,6 +2,7 @@ package com.bosssoft.bes.user.permission.service.impl;
 
 import com.bosssoft.bes.user.permission.dao.LoginMapper;
 import com.bosssoft.bes.user.permission.entity.User;
+import com.bosssoft.bes.user.permission.entity.UserPermission;
 import com.bosssoft.bes.user.permission.pojo.vo.UserVO;
 import com.bosssoft.bes.user.permission.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @Service
 public class LoginServiceImpl implements LoginService {
+
     @Autowired
     private LoginMapper loginMapper;
 
@@ -23,12 +25,12 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public ResponseHead checkUser(UserVO userVO) {
-        String password = loginMapper.checkUser(userVO);
+        List<UserPermission> userPermission = loginMapper.checkUser(userVO);
         ResponseHead responseHead = new ResponseHead();
-        if(password.isEmpty()){
+        if(userPermission.size()==0){
             responseHead.setCode("404");
         }else {
-            if(password == userVO.getPassword()){
+            if(userPermission.size()>0){
                 responseHead.setCode("200");
             }
         }

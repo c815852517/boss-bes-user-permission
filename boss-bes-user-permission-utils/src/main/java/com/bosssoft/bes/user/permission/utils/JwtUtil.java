@@ -31,8 +31,8 @@ public class JwtUtil {
      */
     private static String ISSUER = "sys_user";
     private static String UID = "uid";
-    private static String COMPANYID = "companyId";
-    private static String ORGINAZATIONID = "orginazationId";
+    private static String COMPANY_ID = "companyId";
+    private static String ORGINAZATION_ID = "orginazationId";
     /**
      * 由字符串生成加密key
      *
@@ -62,8 +62,8 @@ public class JwtUtil {
             // 创建payload的私有声明（根据特定的业务需要添加，如果要拿这个做验证，一般是需要和jwt的接收方提前沟通好验证方式的）
             Map<String, Object> claims = new HashMap<String, Object>();
             claims.put(UID, uid);
-            claims.put(ORGINAZATIONID, orginazationId);
-            claims.put(COMPANYID,companyId);
+            claims.put(ORGINAZATION_ID, orginazationId);
+            claims.put(COMPANY_ID,companyId);
             // 指定签名的时候使用的签名算法，也就是header那部分，jjwt已经将这部分内容封装好了。
             SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
             // 生成签名的时候使用的秘钥secret，切记这个秘钥不能外露哦。它就是你服务端的私钥，在任何场景都不应该流露出去。

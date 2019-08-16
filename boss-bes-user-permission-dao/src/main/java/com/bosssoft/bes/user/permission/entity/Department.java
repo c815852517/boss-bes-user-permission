@@ -217,4 +217,26 @@ public class Department implements Serializable {
     public void setVersion(Long version) {
         this.version = version;
     }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "departmentId=" + departmentId +
+                ", companyId=" + companyId +
+                ", userId=" + userId +
+                ", name='" + name + '\'' +
+                ", mnemonicCode='" + mnemonicCode + '\'' +
+                ", code='" + code + '\'' +
+                ", level='" + level + '\'' +
+                ", parentId=" + parentId +
+                ", master='" + master + '\'' +
+                ", descript='" + descript + '\'' +
+                ", status=" + status +
+                ", createdBy=" + createdBy +
+                ", createdTime=" + createdTime +
+                ", updatedBy=" + updatedBy +
+                ", updatedTime=" + updatedTime +
+                ", version=" + version +
+                '}';
+    }
 }

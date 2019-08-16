@@ -28,7 +28,7 @@ public class JwtUtil {
     private static String UID = "userId";
     private static String NAME = "name";
     private static String COMPANY_ID = "companyId";
-    private static String ORGINAZATION_ID = "orginazationId";
+    private static String ORGANIZATION_ID = "orgId";
     private static String ROLE_ID = "roleId";
     /**
      * 由字符串生成加密key
@@ -56,7 +56,7 @@ public class JwtUtil {
             // 创建payload的私有声明（根据特定的业务需要添加，如果要拿这个做验证，一般是需要和jwt的接收方提前沟通好验证方式的）
             Map<String, Object> claims = new HashMap<String, Object>();
             claims.put(UID, userPermission.getUserId());
-            claims.put(ORGINAZATION_ID, userPermission.getOrgId());
+            claims.put(ORGANIZATION_ID, userPermission.getOrgId());
             claims.put(COMPANY_ID,userPermission.getCompanyId());
             claims.put(NAME,userPermission.getName());
             claims.put(ROLE_ID,userPermission.getRoleId());

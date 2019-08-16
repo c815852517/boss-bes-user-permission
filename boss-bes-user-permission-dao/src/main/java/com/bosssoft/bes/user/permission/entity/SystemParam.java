@@ -152,4 +152,21 @@ public class SystemParam implements Serializable {
     public void setVersion(Long version) {
         this.version = version;
     }
+
+    @Override
+    public String toString() {
+        return "SystemParam{" +
+                "systemParamId=" + systemParamId +
+                ", orgId=" + orgId +
+                ", paramType='" + paramType + '\'' +
+                ", param='" + param + '\'' +
+                ", value='" + value + '\'' +
+                ", status=" + status +
+                ", createdBy=" + createdBy +
+                ", createdTime=" + createdTime +
+                ", updatedBy=" + updatedBy +
+                ", updatedTime=" + updatedTime +
+                ", version=" + version +
+                '}';
+    }
 }

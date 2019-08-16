@@ -39,6 +39,11 @@ public class User implements Serializable {
     private String name;
 
     /**
+     * 头像
+     */
+    private String profilePicture;
+
+    /**
      * 性别
      */
     private Byte sex;
@@ -242,5 +247,38 @@ public class User implements Serializable {
 
     public void setVersion(Long version) {
         this.version = version;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", positionId=" + positionId +
+                ", departmentId=" + departmentId +
+                ", code='" + code + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", profilePicture='" + profilePicture + '\'' +
+                ", sex=" + sex +
+                ", birthday=" + birthday +
+                ", tel='" + tel + '\'' +
+                ", email='" + email + '\'' +
+                ", other='" + other + '\'' +
+                ", remark='" + remark + '\'' +
+                ", status=" + status +
+                ", createdBy=" + createdBy +
+                ", createdTime=" + createdTime +
+                ", updatedBy=" + updatedBy +
+                ", updatedTime=" + updatedTime +
+                ", version=" + version +
+                '}';
     }
 }

@@ -256,4 +256,29 @@ public class Company implements Serializable {
     public void setVersion(Long version) {
         this.version = version;
     }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "companyId=" + companyId +
+                ", orgId=" + orgId +
+                ", positionId=" + positionId +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", mnemonicCode='" + mnemonicCode + '\'' +
+                ", master='" + master + '\'' +
+                ", tax='" + tax + '\'' +
+                ", fax='" + fax + '\'' +
+                ", tel='" + tel + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", website='" + website + '\'' +
+                ", status=" + status +
+                ", createdBy=" + createdBy +
+                ", createdTime=" + createdTime +
+                ", updatedBy=" + updatedBy +
+                ", updatedTime=" + updatedTime +
+                ", version=" + version +
+                '}';
+    }
 }

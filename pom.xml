@@ -34,7 +34,7 @@
 <!--        </dependency>-->
 <!--        <dependency>-->
 <!--            <groupId>com.bosssoft.hr.train</groupId>-->
-<!--            <artifactId>boss-bes-common-utils</artifactId>-->
+<!--            <artifactId>boss-bes-common-service</artifactId>-->
 <!--            <version>1.0-SNAPSHOT</version>-->
 <!--        </dependency>-->
 <!--        <dependency>-->

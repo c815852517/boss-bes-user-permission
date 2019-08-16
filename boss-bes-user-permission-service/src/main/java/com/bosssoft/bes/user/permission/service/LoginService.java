@@ -1,4 +1,4 @@
-package com.bosssoft.bes.user.permission.utils;
+package com.bosssoft.bes.user.permission.service;
 
 import com.bosssoft.bes.user.permission.entity.User;
 import com.bosssoft.bes.user.permission.pojo.vo.UserVO;

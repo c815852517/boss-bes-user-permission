@@ -1,7 +1,7 @@
 package com.bosssoft.bes.user.permission.api.controller;
 
 import com.bosssoft.bes.user.permission.entity.Dictionary;
-import com.bosssoft.bes.user.permission.utils.DictionaryService;
+import com.bosssoft.bes.user.permission.service.DictionaryService;
 import com.bosssoft.bes.user.permission.utils.JwtUtil;
 import com.bosssoft.hr.train.bossbescommonlogging.annotation.Log;
 //import exception.EnumError;
@@ -25,7 +25,7 @@ public class DictionaryController {
     @Log
     @RequestMapping(value ="/index")
     public String index(){
-        JwtUtil.createJWT("test","123");
+        JwtUtil.createJWT("123","test");
         return "hello world";
     }
 }

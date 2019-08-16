@@ -1,8 +1,8 @@
-package com.bosssoft.bes.user.permission.utils.impl;
+package com.bosssoft.bes.user.permission.service.impl;
 
 import com.bosssoft.bes.user.permission.dao.DictionaryMapper;
 import com.bosssoft.bes.user.permission.entity.Dictionary;
-import com.bosssoft.bes.user.permission.utils.DictionaryService;
+import com.bosssoft.bes.user.permission.service.DictionaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -7,14 +7,9 @@ import com.bosssoft.bes.user.permission.pojo.vo.UserVO;
 import com.bosssoft.bes.user.permission.service.LoginService;
 import com.bosssoft.bes.user.permission.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import protocol.CommonRequest;
 import protocol.CommonResponse;
-import protocol.body.ResponseBody;
-import protocol.head.ResponseHead;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,16 +31,21 @@ public class LoginController {
         UserPermission userPermission = loginService.checkUser(userVO);
         String token = JwtUtil.createJwt(userPermission);
         Map<String,Object> data = new HashMap<String, Object>();
-        data.put("userPermission",userPermission);
         data.put("token",token);
-        data.put("code",200);
-        return CommonResponse.create(null,null,null,true,data);
+        return CommonResponse.create(null,"200",null,true,data);
     }
 
     @PostMapping(value = "/getInfo")
-    public CommonResponse getInfo(@RequestBody String token){
-
-        return null;
+    public CommonResponse getInfo(@RequestParam String token) throws Exception {
+        UserPermission userPermission = JwtUtil.parseJwt(token);
+        UserVO userVO = new UserVO();
+        userVO.setUserId(userPermission.getUserId());
+        System.out.println(CommonResponse.create(null,null,null,true,loginService.getUserInfo(userVO)));
+        return CommonResponse.create(null,"200",null,true,loginService.getUserInfo(userVO));
     }
 
+    @PostMapping(value = "/logout")
+    public CommonResponse logout(){
+        return CommonResponse.create(null,"200",null,true,null);
+    }
 }

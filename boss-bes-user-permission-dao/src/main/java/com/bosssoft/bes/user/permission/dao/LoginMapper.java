@@ -1,6 +1,7 @@
 package com.bosssoft.bes.user.permission.dao;
 
 import com.bosssoft.bes.user.permission.entity.User;
+import com.bosssoft.bes.user.permission.pojo.vo.UserInfo;
 import com.bosssoft.bes.user.permission.pojo.vo.UserPermission;
 import com.bosssoft.bes.user.permission.pojo.vo.UserVO;
 import org.apache.ibatis.annotations.Select;
@@ -16,6 +17,6 @@ public interface LoginMapper extends Mapper<User> {
             "where a.code = #{code} and a.password = #{password} and a.user_id = b.user_id and b.role_id = c.role_id")
     UserPermission checkUser(UserVO userVO);
 
-    @Select("select password from t_user where code = #{code}")
-    List<User> checkUser1(UserVO userVO);
+    @Select("select a.name,a.profile_picture,b.role_id from t_user a,t_user_role b where a.user_id = #{userId} and a.user_id = b.user_id ")
+    UserInfo getUserInfo(UserVO userVO);
 }

@@ -85,15 +85,16 @@ public class JwtUtil {
         Algorithm algorithm = Algorithm.HMAC256(KEY);
         JWTVerifier verifier = JWT.require(algorithm).withIssuer(ISSUER).build();
         DecodedJWT jwt =  verifier.verify(token);
-        UserPermission userPermission = null;
+        UserPermission userPermission = new UserPermission();
         Map<String, Claim> map = jwt.getClaims();
         Map<String, String> resultMap = new HashMap<>();
         map.forEach((k,v) -> resultMap.put(k, v.asString()));
+        System.out.println(resultMap);
         userPermission.setUserId(Long.valueOf(resultMap.get(UID)));
         userPermission.setName(resultMap.get(NAME));
         userPermission.setCompanyId(Long.valueOf(resultMap.get(COMPANY_ID)));
-        userPermission.setOrgId(Long.valueOf(ORGANIZATION_ID));
-        userPermission.setRoleId(Long.valueOf(ROLE_ID));
+        userPermission.setOrgId(Long.valueOf(resultMap.get(ORGANIZATION_ID)));
+        userPermission.setRoleId(Long.valueOf(resultMap.get(ROLE_ID)));
         return userPermission;
     }
 

@@ -1,4 +1,4 @@
-package com.bosssoft.bes.user.permission.service;
+package com.bosssoft.bes.user.permission.utils;
 
 import java.util.List;
 

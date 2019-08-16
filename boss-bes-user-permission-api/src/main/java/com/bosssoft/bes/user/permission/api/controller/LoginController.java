@@ -33,7 +33,7 @@ public class LoginController {
         System.out.println(userVO.toString());
         ResponseBody responseBody = new ResponseBody();
         Map<String, Object> data = new HashMap<String, Object>();
-        JwtUtil.createJWT(userVO.getUserId(),userVO.getPositionId(),userVO.get);
+        JwtUtil.createJwt(userVO.getUserId(),userVO.getPositionId(),userVO.get);
         data.put("token","111");
         responseBody.setData(data);
         return CommonResponse.create(loginService.checkUser(userVO),responseBody);

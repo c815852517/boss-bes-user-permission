@@ -1,5 +1,6 @@
 package com.bosssoft.bes.user.permission.utils;
 
+import com.bosssoft.bes.user.permission.pojo.vo.UserPermission;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
@@ -23,16 +24,12 @@ import java.util.Map;
 public class JwtUtil {
 
     public static final String KEY = "022bdc63c3c5a45879ee6581508b9d03adfec4a4658c0ab3d722e50c91a351c42c231cf43bb8f86998202bd301ec52239a74fc0c9a9aeccce604743367c9646b";
-
-    /**
-     * @param UID 用户ID
-     * @param COMPANYID 公司ID
-     * @param ORGINAZATIONID 组织机构ID
-     */
     private static String ISSUER = "sys_user";
-    private static String UID = "uid";
+    private static String UID = "userId";
+    private static String NAME = "name";
     private static String COMPANY_ID = "companyId";
     private static String ORGINAZATION_ID = "orginazationId";
+    private static String ROLE_ID = "roleId";
     /**
      * 由字符串生成加密key
      *
@@ -45,14 +42,11 @@ public class JwtUtil {
     }
 
     /**
-     * 创建JWT
-     * @param uid
-     * @param companyId
-     * @param orginazationId
-     * @return
+     * 创建token
+     * @param userPermission token中私有声明实体
+     * @return token
      */
-    public static String createJWT(String uid, String companyId, String orginazationId) {
-
+    public static String createJwt(UserPermission userPermission) {
         // 生成JWT过期的时间
         long nowMillis = System.currentTimeMillis();
         Date now = new Date(nowMillis);
@@ -61,9 +55,11 @@ public class JwtUtil {
         try {
             // 创建payload的私有声明（根据特定的业务需要添加，如果要拿这个做验证，一般是需要和jwt的接收方提前沟通好验证方式的）
             Map<String, Object> claims = new HashMap<String, Object>();
-            claims.put(UID, uid);
-            claims.put(ORGINAZATION_ID, orginazationId);
-            claims.put(COMPANY_ID,companyId);
+            claims.put(UID, userPermission.getUserId());
+            claims.put(ORGINAZATION_ID, userPermission.getOrgId());
+            claims.put(COMPANY_ID,userPermission.getCompanyId());
+            claims.put(NAME,userPermission.getName());
+            claims.put(ROLE_ID,userPermission.getRoleId());
             // 指定签名的时候使用的签名算法，也就是header那部分，jjwt已经将这部分内容封装好了。
             SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
             // 生成签名的时候使用的秘钥secret，切记这个秘钥不能外露哦。它就是你服务端的私钥，在任何场景都不应该流露出去。
@@ -90,7 +86,7 @@ public class JwtUtil {
      * @return
      * @throws Exception
      */
-    public static Claims parseJWT(String jwt) throws Exception {
+    public static Claims parseJwt(String jwt) throws Exception {
         SecretKey key = generalKey();  //签名秘钥，和生成的签名的秘钥一模一样
         Claims claims = Jwts.parser()  //得到DefaultJwtParser
                 .setSigningKey(key)                 //设置签名的秘钥
@@ -104,7 +100,7 @@ public class JwtUtil {
      *//*
     public static boolean checkToken(String jwtToken, ObjectMapper objectMapper) throws Exception {
         //TODO 根据自己的业务修改
-        Claims claims = JwtUtil.parseJWT(jwtToken);
+        Claims claims = JwtUtil.parseJwt(jwtToken);
         String subject = claims.getSubject();
         JwtModel jwtModel = objectMapper.readValue(subject, JwtModel.class);
         *//*

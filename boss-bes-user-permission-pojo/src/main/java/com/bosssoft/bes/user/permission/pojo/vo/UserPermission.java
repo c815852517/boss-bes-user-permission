@@ -1,4 +1,4 @@
-package com.bosssoft.bes.user.permission.entity;
+package com.bosssoft.bes.user.permission.pojo.vo;
 
 public class UserPermission {
     private Long userId;
@@ -6,7 +6,7 @@ public class UserPermission {
     private String name;
     private Long roleId;
     private Long orgId;
-    private Long commpanyId;
+    private Long companyId;
 
     public Long getUserId() {
         return userId;
@@ -48,12 +48,12 @@ public class UserPermission {
         this.orgId = orgId;
     }
 
-    public Long getCommpanyId() {
-        return commpanyId;
+    public Long getCompanyId() {
+        return companyId;
     }
 
-    public void setCommpanyId(Long commpanyId) {
-        this.commpanyId = commpanyId;
+    public void setCompanyId(Long companyId) {
+        this.companyId = companyId;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class UserPermission {
                 ", name='" + name + '\'' +
                 ", roleId=" + roleId +
                 ", orgId=" + orgId +
-                ", commpanyId=" + commpanyId +
+                ", companyId=" + companyId +
                 '}';
     }
 }

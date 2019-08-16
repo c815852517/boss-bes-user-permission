@@ -25,7 +25,7 @@ public class DictionaryController {
     @Log
     @RequestMapping(value ="/index")
     public String index(){
-        JwtUtil.createJWT("123","test");
+        JwtUtil.createJwt("123","test");
         return "hello world";
     }
 }

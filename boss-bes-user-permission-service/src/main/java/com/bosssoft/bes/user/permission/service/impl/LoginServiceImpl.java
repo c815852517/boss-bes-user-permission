@@ -24,16 +24,8 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public ResponseHead checkUser(UserVO userVO) {
-        List<UserPermission> userPermission = loginMapper.checkUser(userVO);
-        ResponseHead responseHead = new ResponseHead();
-        if(userPermission.size()==0){
-            responseHead.setCode("404");
-        }else {
-            if(userPermission.size()>0){
-                responseHead.setCode("200");
-            }
-        }
-        return responseHead;
+    public UserPermission checkUser(UserVO userVO) {
+        UserPermission userPermission = loginMapper.checkUser(userVO);
+        return userPermission;
     }
 }

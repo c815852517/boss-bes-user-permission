@@ -59,7 +59,7 @@ public class JwtUtil {
         Date expTime = new Date(ttlMillis);
         try {
             // 创建payload的私有声明（根据特定的业务需要添加，如果要拿这个做验证，一般是需要和jwt的接收方提前沟通好验证方式的）
-            Map<String, Object> claims = new HashMap<>();
+            Map<String, Object> claims = new HashMap<String, Object>();
             claims.put(UID, uid);
             claims.put(CODE, code);
             // 指定签名的时候使用的签名算法，也就是header那部分，jjwt已经将这部分内容封装好了。

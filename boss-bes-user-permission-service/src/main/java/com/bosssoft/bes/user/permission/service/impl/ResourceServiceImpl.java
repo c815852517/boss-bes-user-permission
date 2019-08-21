@@ -41,7 +41,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     @Override
     public List<Resource> getResourceInfo() {
-        System.out.println(resourceMapper.selectAll());
         return resourceMapper.selectAll();
     }
 }

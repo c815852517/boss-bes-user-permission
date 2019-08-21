@@ -19,7 +19,6 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public UserPermission checkUser(UserVO userVO) {
-        System.out.println(loginMapper.checkUser(userVO));
         return loginMapper.checkUser(userVO);
     }
 

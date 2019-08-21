@@ -10,12 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import protocol.CommonRequest;
 import protocol.CommonResponse;
+import protocol.RequestHead;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value = "/login")
+@RequestMapping(value = "/boss/bes/user/login")
 public class LoginController {
 
     /**
@@ -27,16 +28,18 @@ public class LoginController {
     @PostMapping(value = "/check")
     public CommonResponse check(@RequestBody CommonRequest commonRequest){
         UserVO userVO = JSON.parseObject( JSON.toJSONString(commonRequest.getBody().getData()),UserVO.class);
-        System.out.println(userVO.toString());
         UserPermission userPermission = loginService.checkUser(userVO);
         String token = JwtUtil.createJwt(userPermission);
         Map<String,Object> data = new HashMap<String, Object>();
         data.put("token",token);
+        System.out.println(data);
         return CommonResponse.create(null,"200",null,true,data);
     }
 
     @PostMapping(value = "/getInfo")
-    public CommonResponse getInfo(@RequestParam String token) throws Exception {
+    public CommonResponse getInfo(@RequestBody CommonRequest commonRequest) throws Exception {
+        RequestHead head = JSON.parseObject( JSON.toJSONString(commonRequest.getHead()),RequestHead.class);
+        String token = head.getToken();
         UserPermission userPermission = JwtUtil.parseJwt(token);
         UserVO userVO = new UserVO();
         userVO.setUserId(userPermission.getUserId());

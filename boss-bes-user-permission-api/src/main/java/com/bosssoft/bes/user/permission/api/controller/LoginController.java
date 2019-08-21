@@ -40,7 +40,6 @@ public class LoginController {
         UserPermission userPermission = JwtUtil.parseJwt(token);
         UserVO userVO = new UserVO();
         userVO.setUserId(userPermission.getUserId());
-        System.out.println(CommonResponse.create(null,null,null,true,loginService.getUserInfo(userVO)));
         return CommonResponse.create(null,"200",null,true,loginService.getUserInfo(userVO));
     }
 

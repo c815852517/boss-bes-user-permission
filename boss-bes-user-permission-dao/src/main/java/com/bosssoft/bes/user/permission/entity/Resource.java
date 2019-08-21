@@ -1,5 +1,6 @@
 package com.bosssoft.bes.user.permission.entity;
 
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,16 +8,12 @@ import java.util.Date;
  * t_resource
  * @author 
  */
+@Table(name = "t_resource")
 public class Resource implements Serializable {
     /**
      * 资源ID
      */
     private Long resourceId;
-
-    /**
-     * 职位ID
-     */
-    private Long positionId;
 
     /**
      * 节点名称
@@ -101,14 +98,6 @@ public class Resource implements Serializable {
 
     public void setResourceId(Long resourceId) {
         this.resourceId = resourceId;
-    }
-
-    public Long getPositionId() {
-        return positionId;
-    }
-
-    public void setPositionId(Long positionId) {
-        this.positionId = positionId;
     }
 
     public String getName() {
@@ -235,7 +224,6 @@ public class Resource implements Serializable {
     public String toString() {
         return "Resource{" +
                 "resourceId=" + resourceId +
-                ", positionId=" + positionId +
                 ", name='" + name + '\'' +
                 ", code='" + code + '\'' +
                 ", parentId=" + parentId +

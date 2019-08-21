@@ -1,5 +1,6 @@
 package com.bosssoft.bes.user.permission.entity;
 
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,6 +8,7 @@ import java.util.Date;
  * t_company
  * @author 
  */
+@Table(name = "t_company")
 public class Company implements Serializable {
     /**
      * 公司ID

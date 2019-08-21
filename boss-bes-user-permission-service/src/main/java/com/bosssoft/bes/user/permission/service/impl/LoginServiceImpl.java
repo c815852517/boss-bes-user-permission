@@ -8,7 +8,6 @@ import com.bosssoft.bes.user.permission.pojo.vo.UserVO;
 import com.bosssoft.bes.user.permission.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import protocol.head.ResponseHead;
 
 import java.util.List;
 

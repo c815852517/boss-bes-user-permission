@@ -4,8 +4,14 @@ spring:
     #url: jdbc:mysql://172.20.0.112:3306/db_user_center?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
     username: root
     password: 123456
+  application:
+    name: boss-bes-user
 server:
   port: 8088
 mybatis:
     configuration:
         map-underscore-to-camel-case: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

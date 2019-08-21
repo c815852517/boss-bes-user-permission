@@ -44,7 +44,6 @@ public class ResourceController {
 
     @PostMapping(value = "/getResourceInfo")
     public CommonResponse getResourceInfo(@RequestBody CommonRequest commonRequest){
-        System.out.println("aaa");
         return CommonResponse.create(null,"200",null,true,resourceService.getResourceInfo());
     }
 

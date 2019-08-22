@@ -19,7 +19,9 @@ public class ResourceController {
 
     @PostMapping(value = "/saveResource")
     public CommonResponse saveResource(@RequestBody CommonRequest commonRequest){
+        System.out.println(commonRequest);
         Resource resource = JSON.parseObject( JSON.toJSONString(commonRequest.getBody().getData()),Resource.class);
+        System.out.println(resource);
         resourceService.saveResource(resource);
         return CommonResponse.create(null,"200",null,true,null);
     }

@@ -30,6 +30,7 @@ public class LoginController {
     public CommonResponse check(@RequestBody Object user){
         UserVO userVO = JSON.parseObject( JSON.toJSONString(user),UserVO.class);
         UserPermission userPermission = loginService.checkUser(userVO);
+        System.out.println(userPermission);
         String token = JwtUtil.createJwt(userPermission);
         Map<String,Object> data = new HashMap<String, Object>();
         data.put("token",token);
@@ -43,7 +44,7 @@ public class LoginController {
         String token = head.getToken();
         UserPermission userPermission = JwtUtil.parseJwt(token);
         UserVO userVO = new UserVO();
-        userVO.setUserId(userPermission.getUserId());
+        userVO.setId(userPermission.getId());
         return CommonResponse.create(null,"200",null,true,loginService.getUserInfo(userVO));
     }
 

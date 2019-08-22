@@ -51,7 +51,7 @@ public class JwtUtil {
         try {
             // 创建payload的私有声明（根据特定的业务需要添加，如果要拿这个做验证，一般是需要和jwt的接收方提前沟通好验证方式的）
             Map<String, String> claims = new HashMap<String, String>();
-            claims.put(UID, userPermission.getUserId().toString());
+            claims.put(UID, userPermission.getId().toString());
             claims.put(ORGANIZATION_ID, userPermission.getOrgId().toString());
             claims.put(COMPANY_ID,userPermission.getCompanyId().toString());
             claims.put(NAME,userPermission.getName());
@@ -90,7 +90,7 @@ public class JwtUtil {
         Map<String, String> resultMap = new HashMap<>();
         map.forEach((k,v) -> resultMap.put(k, v.asString()));
         System.out.println(resultMap);
-        userPermission.setUserId(Long.valueOf(resultMap.get(UID)));
+        userPermission.setId(Long.valueOf(resultMap.get(UID)));
         userPermission.setName(resultMap.get(NAME));
         userPermission.setCompanyId(Long.valueOf(resultMap.get(COMPANY_ID)));
         userPermission.setOrgId(Long.valueOf(resultMap.get(ORGANIZATION_ID)));

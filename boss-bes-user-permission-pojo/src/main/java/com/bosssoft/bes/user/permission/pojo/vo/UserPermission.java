@@ -1,18 +1,18 @@
 package com.bosssoft.bes.user.permission.pojo.vo;
 
 public class UserPermission {
-    private Long userId;
+    private Long Id;
     private String name;
     private Long roleId;
     private Long orgId;
     private Long companyId;
 
-    public Long getUserId() {
-        return userId;
+    public Long getId() {
+        return Id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setId(Long Id) {
+        this.Id = Id;
     }
 
     public String getName() {
@@ -50,7 +50,7 @@ public class UserPermission {
     @Override
     public String toString() {
         return "UserPermission{" +
-                "userId=" + userId +
+                "Id=" + Id +
                 ", name='" + name + '\'' +
                 ", roleId=" + roleId +
                 ", orgId=" + orgId +

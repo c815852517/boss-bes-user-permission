@@ -1,4 +1,4 @@
-package com.bosssoft.bes.user.permission.entity;
+package com.bosssoft.bes.user.permission.pojo.dto;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -7,7 +7,7 @@ import java.util.Date;
  * t_department
  * @author
  */
-public class Department implements Serializable {
+public class DepartmentDTO implements Serializable {
     /**
      * 部门ID
      */
@@ -220,7 +220,7 @@ public class Department implements Serializable {
 
     @Override
     public String toString() {
-        return "Department{" +
+        return "DepartmentDTO{" +
                 "id=" + id +
                 ", companyId=" + companyId +
                 ", userId=" + userId +

@@ -1,9 +1,13 @@
-package com.bosssoft.bes.user.permission.pojo.vo;
+package com.bosssoft.bes.user.permission.pojo.dto;
 
 import java.io.Serializable;
 import java.util.Date;
 
-public class UserOnlineInfoVO implements Serializable {
+/**
+ * t_user_online_info
+ * @author
+ */
+public class UserOnlineInfoDTO implements Serializable {
     /**
      * 在线ID
      */
@@ -48,6 +52,8 @@ public class UserOnlineInfoVO implements Serializable {
      * 状态位
      */
     private Byte status;
+
+    private static final long serialVersionUID = 1L;
 
     public Long getId() {
         return id;
@@ -123,7 +129,7 @@ public class UserOnlineInfoVO implements Serializable {
 
     @Override
     public String toString() {
-        return "UserOnlineInfoVO{" +
+        return "UserOnlineInfo{" +
                 "id=" + id +
                 ", userId=" + userId +
                 ", code='" + code + '\'' +

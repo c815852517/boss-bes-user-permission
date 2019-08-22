@@ -6,7 +6,7 @@ public class CompanyVO implements Serializable {
     /**
      * 公司ID
      */
-    private Long companyId;
+    private Long id;
 
     /**
      * 组织机构ID
@@ -73,12 +73,12 @@ public class CompanyVO implements Serializable {
      */
     private Byte status;
 
-    public Long getCompanyId() {
-        return companyId;
+    public Long getId() {
+        return id;
     }
 
-    public void setCompanyId(Long companyId) {
-        this.companyId = companyId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getOrgId() {
@@ -183,5 +183,25 @@ public class CompanyVO implements Serializable {
 
     public void setStatus(Byte status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "CompanyVO{" +
+                "id=" + id +
+                ", orgId=" + orgId +
+                ", positionId=" + positionId +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", mnemonicCode='" + mnemonicCode + '\'' +
+                ", master='" + master + '\'' +
+                ", tax='" + tax + '\'' +
+                ", fax='" + fax + '\'' +
+                ", tel='" + tel + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", website='" + website + '\'' +
+                ", status=" + status +
+                '}';
     }
 }

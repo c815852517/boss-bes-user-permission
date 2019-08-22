@@ -1,17 +1,22 @@
-package com.bosssoft.bes.user.permission.entity;
+package com.bosssoft.bes.user.permission.pojo.dto;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * t_system_param
+ * t_role
  * @author
  */
-public class SystemParam implements Serializable {
+public class RoleDTO implements Serializable {
     /**
-     * 系统参数ID
+     * 角色ID
      */
     private Long id;
+
+    /**
+     * 公司ID
+     */
+    private Long companyId;
 
     /**
      * 组织机构ID
@@ -19,19 +24,19 @@ public class SystemParam implements Serializable {
     private Long orgId;
 
     /**
-     * 参数类型
+     * 角色名
      */
-    private String paramType;
+    private String name;
 
     /**
-     * 参数项
+     * 角色代码
      */
-    private String param;
+    private String code;
 
     /**
-     * 参数值
+     * 备注
      */
-    private String value;
+    private String remark;
 
     /**
      * 状态位
@@ -73,6 +78,14 @@ public class SystemParam implements Serializable {
         this.id = id;
     }
 
+    public Long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Long companyId) {
+        this.companyId = companyId;
+    }
+
     public Long getOrgId() {
         return orgId;
     }
@@ -81,28 +94,28 @@ public class SystemParam implements Serializable {
         this.orgId = orgId;
     }
 
-    public String getParamType() {
-        return paramType;
+    public String getName() {
+        return name;
     }
 
-    public void setParamType(String paramType) {
-        this.paramType = paramType;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getParam() {
-        return param;
+    public String getCode() {
+        return code;
     }
 
-    public void setParam(String param) {
-        this.param = param;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public String getValue() {
-        return value;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public Byte getStatus() {
@@ -155,12 +168,13 @@ public class SystemParam implements Serializable {
 
     @Override
     public String toString() {
-        return "SystemParam{" +
+        return "RoleDTO{" +
                 "id=" + id +
+                ", companyId=" + companyId +
                 ", orgId=" + orgId +
-                ", paramType='" + paramType + '\'' +
-                ", param='" + param + '\'' +
-                ", value='" + value + '\'' +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", remark='" + remark + '\'' +
                 ", status=" + status +
                 ", createdBy=" + createdBy +
                 ", createdTime=" + createdTime +

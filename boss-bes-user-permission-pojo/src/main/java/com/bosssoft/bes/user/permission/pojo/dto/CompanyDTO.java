@@ -1,32 +1,37 @@
-package com.bosssoft.bes.user.permission.entity;
+package com.bosssoft.bes.user.permission.pojo.dto;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * t_department
+ * t_company
  * @author
  */
-public class Department implements Serializable {
+public class CompanyDTO implements Serializable {
     /**
-     * 部门ID
+     * 公司ID
      */
     private Long id;
 
     /**
-     * 公司ID
+     * 组织机构ID
      */
-    private Long companyId;
+    private Long orgId;
 
     /**
-     * 用户ID
+     * 职位ID
      */
-    private Long userId;
+    private Long positionId;
 
     /**
-     * 部门名称
+     * 公司名
      */
     private String name;
+
+    /**
+     * 公司编号
+     */
+    private String code;
 
     /**
      * 助记码
@@ -34,32 +39,42 @@ public class Department implements Serializable {
     private String mnemonicCode;
 
     /**
-     * 部门编号
-     */
-    private String code;
-
-    /**
-     * 部门级别
-     */
-    private String level;
-
-    /**
-     * 上级部门
-     */
-    private Long parentId;
-
-    /**
-     * 负责人
+     * 法人
      */
     private String master;
 
     /**
-     * 部门描述
+     * 税号
      */
-    private String descript;
+    private String tax;
 
     /**
-     * 状态
+     * 传真
+     */
+    private String fax;
+
+    /**
+     * 电话
+     */
+    private String tel;
+
+    /**
+     * 地址
+     */
+    private String address;
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
+     * 网址
+     */
+    private String website;
+
+    /**
+     * 状态位
      */
     private Byte status;
 
@@ -98,20 +113,20 @@ public class Department implements Serializable {
         this.id = id;
     }
 
-    public Long getCompanyId() {
-        return companyId;
+    public Long getOrgId() {
+        return orgId;
     }
 
-    public void setCompanyId(Long companyId) {
-        this.companyId = companyId;
+    public void setOrgId(Long orgId) {
+        this.orgId = orgId;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getPositionId() {
+        return positionId;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setPositionId(Long positionId) {
+        this.positionId = positionId;
     }
 
     public String getName() {
@@ -122,14 +137,6 @@ public class Department implements Serializable {
         this.name = name;
     }
 
-    public String getMnemonicCode() {
-        return mnemonicCode;
-    }
-
-    public void setMnemonicCode(String mnemonicCode) {
-        this.mnemonicCode = mnemonicCode;
-    }
-
     public String getCode() {
         return code;
     }
@@ -138,20 +145,12 @@ public class Department implements Serializable {
         this.code = code;
     }
 
-    public String getLevel() {
-        return level;
+    public String getMnemonicCode() {
+        return mnemonicCode;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
-    public Long getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
+    public void setMnemonicCode(String mnemonicCode) {
+        this.mnemonicCode = mnemonicCode;
     }
 
     public String getMaster() {
@@ -162,12 +161,52 @@ public class Department implements Serializable {
         this.master = master;
     }
 
-    public String getDescript() {
-        return descript;
+    public String getTax() {
+        return tax;
     }
 
-    public void setDescript(String descript) {
-        this.descript = descript;
+    public void setTax(String tax) {
+        this.tax = tax;
+    }
+
+    public String getFax() {
+        return fax;
+    }
+
+    public void setFax(String fax) {
+        this.fax = fax;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public Byte getStatus() {
@@ -220,17 +259,20 @@ public class Department implements Serializable {
 
     @Override
     public String toString() {
-        return "Department{" +
+        return "CompanyDTO{" +
                 "id=" + id +
-                ", companyId=" + companyId +
-                ", userId=" + userId +
+                ", orgId=" + orgId +
+                ", positionId=" + positionId +
                 ", name='" + name + '\'' +
-                ", mnemonicCode='" + mnemonicCode + '\'' +
                 ", code='" + code + '\'' +
-                ", level='" + level + '\'' +
-                ", parentId=" + parentId +
+                ", mnemonicCode='" + mnemonicCode + '\'' +
                 ", master='" + master + '\'' +
-                ", descript='" + descript + '\'' +
+                ", tax='" + tax + '\'' +
+                ", fax='" + fax + '\'' +
+                ", tel='" + tel + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", website='" + website + '\'' +
                 ", status=" + status +
                 ", createdBy=" + createdBy +
                 ", createdTime=" + createdTime +

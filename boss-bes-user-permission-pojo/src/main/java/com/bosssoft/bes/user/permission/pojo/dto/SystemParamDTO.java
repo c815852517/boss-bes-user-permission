@@ -1,4 +1,4 @@
-package com.bosssoft.bes.user.permission.entity;
+package com.bosssoft.bes.user.permission.pojo.dto;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -7,7 +7,7 @@ import java.util.Date;
  * t_system_param
  * @author
  */
-public class SystemParam implements Serializable {
+public class SystemParamDTO implements Serializable {
     /**
      * 系统参数ID
      */
@@ -155,7 +155,7 @@ public class SystemParam implements Serializable {
 
     @Override
     public String toString() {
-        return "SystemParam{" +
+        return "SystemParamDTO{" +
                 "id=" + id +
                 ", orgId=" + orgId +
                 ", paramType='" + paramType + '\'' +

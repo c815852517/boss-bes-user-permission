@@ -6,14 +6,14 @@ import java.util.Date;
 
 /**
  * t_resource
- * @author 
+ * @author
  */
 @Table(name = "t_resource")
 public class Resource implements Serializable {
     /**
      * 资源ID
      */
-    private Long resourceId;
+    private Long id;
 
     /**
      * 节点名称
@@ -92,12 +92,12 @@ public class Resource implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getResourceId() {
-        return resourceId;
+    public Long getId() {
+        return id;
     }
 
-    public void setResourceId(Long resourceId) {
-        this.resourceId = resourceId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -223,7 +223,7 @@ public class Resource implements Serializable {
     @Override
     public String toString() {
         return "Resource{" +
-                "resourceId=" + resourceId +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", code='" + code + '\'' +
                 ", parentId=" + parentId +

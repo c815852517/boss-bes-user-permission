@@ -6,7 +6,7 @@ public class RoleVO implements Serializable {
     /**
      * 角色ID
      */
-    private Long roleId;
+    private Long id;
 
     /**
      * 公司ID
@@ -38,12 +38,12 @@ public class RoleVO implements Serializable {
      */
     private Byte status;
 
-    public Long getRoleId() {
-        return roleId;
+    public Long getId() {
+        return id;
     }
 
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getCompanyId() {
@@ -92,5 +92,18 @@ public class RoleVO implements Serializable {
 
     public void setStatus(Byte status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "RoleVO{" +
+                "id=" + id +
+                ", companyId=" + companyId +
+                ", orgId=" + orgId +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", remark='" + remark + '\'' +
+                ", status=" + status +
+                '}';
     }
 }

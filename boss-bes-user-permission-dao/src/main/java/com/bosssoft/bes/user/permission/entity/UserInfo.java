@@ -1,4 +1,4 @@
-package com.bosssoft.bes.user.permission.pojo.vo;
+package com.bosssoft.bes.user.permission.entity;
 
 public class UserInfo {
     private String name;

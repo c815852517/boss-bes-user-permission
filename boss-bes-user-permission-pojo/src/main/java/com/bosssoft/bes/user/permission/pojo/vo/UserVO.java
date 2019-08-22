@@ -7,7 +7,7 @@ public class UserVO implements Serializable {
     /**
      * 用户ID
      */
-    private Long Id;
+    private Long id;
 
     /**
      * 职位ID
@@ -75,11 +75,11 @@ public class UserVO implements Serializable {
     private Byte status;
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long Id) {
-        this.Id = Id;
+        this.id = Id;
     }
 
     public Long getPositionId() {
@@ -189,7 +189,7 @@ public class UserVO implements Serializable {
     @Override
     public String toString() {
         return "UserVO{" +
-                "Id=" + Id +
+                "id=" + id +
                 ", positionId=" + positionId +
                 ", departmentId=" + departmentId +
                 ", code='" + code + '\'' +

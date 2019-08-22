@@ -6,7 +6,7 @@ public class PositionVO implements Serializable {
     /**
      * 职位ID
      */
-    private Long positionId;
+    private Long id;
 
     /**
      * 资源ID
@@ -43,12 +43,12 @@ public class PositionVO implements Serializable {
      */
     private Byte status;
 
-    public Long getPositionId() {
-        return positionId;
+    public Long getId() {
+        return id;
     }
 
-    public void setPositionId(Long positionId) {
-        this.positionId = positionId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getResourceId() {
@@ -105,5 +105,19 @@ public class PositionVO implements Serializable {
 
     public void setStatus(Byte status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "PositionVO{" +
+                "id=" + id +
+                ", resourceId=" + resourceId +
+                ", companyId=" + companyId +
+                ", userId=" + userId +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", remark='" + remark + '\'' +
+                ", status=" + status +
+                '}';
     }
 }

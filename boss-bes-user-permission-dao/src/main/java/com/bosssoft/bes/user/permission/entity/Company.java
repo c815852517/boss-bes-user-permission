@@ -6,14 +6,14 @@ import java.util.Date;
 
 /**
  * t_company
- * @author 
+ * @author
  */
 @Table(name = "t_company")
 public class Company implements Serializable {
     /**
      * 公司ID
      */
-    private Long companyId;
+    private Long id;
 
     /**
      * 组织机构ID
@@ -107,12 +107,12 @@ public class Company implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getCompanyId() {
-        return companyId;
+    public Long getId() {
+        return id;
     }
 
-    public void setCompanyId(Long companyId) {
-        this.companyId = companyId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getOrgId() {
@@ -262,7 +262,7 @@ public class Company implements Serializable {
     @Override
     public String toString() {
         return "Company{" +
-                "companyId=" + companyId +
+                "id=" + id +
                 ", orgId=" + orgId +
                 ", positionId=" + positionId +
                 ", name='" + name + '\'' +

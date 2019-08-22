@@ -6,12 +6,7 @@ public class ResourceVO implements Serializable {
     /**
      * 资源ID
      */
-    private Long resourceId;
-
-    /**
-     * 职位ID
-     */
-    private Long positionId;
+    private Long id;
 
     /**
      * 节点名称
@@ -63,20 +58,12 @@ public class ResourceVO implements Serializable {
      */
     private Byte status;
 
-    public Long getResourceId() {
-        return resourceId;
+    public Long getId() {
+        return id;
     }
 
-    public void setResourceId(Long resourceId) {
-        this.resourceId = resourceId;
-    }
-
-    public Long getPositionId() {
-        return positionId;
-    }
-
-    public void setPositionId(Long positionId) {
-        this.positionId = positionId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -157,5 +144,22 @@ public class ResourceVO implements Serializable {
 
     public void setStatus(Byte status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "ResourceVO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", parentId=" + parentId +
+                ", url='" + url + '\'' +
+                ", openImg='" + openImg + '\'' +
+                ", closeImg='" + closeImg + '\'' +
+                ", resourceType=" + resourceType +
+                ", leaf=" + leaf +
+                ", remark='" + remark + '\'' +
+                ", status=" + status +
+                '}';
     }
 }

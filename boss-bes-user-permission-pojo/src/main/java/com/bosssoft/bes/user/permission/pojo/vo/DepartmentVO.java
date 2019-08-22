@@ -6,7 +6,7 @@ public class DepartmentVO implements Serializable {
     /**
      * 部门ID
      */
-    private Long departmentId;
+    private Long id;
 
     /**
      * 公司ID
@@ -58,12 +58,12 @@ public class DepartmentVO implements Serializable {
      */
     private Byte status;
 
-    public Long getDepartmentId() {
-        return departmentId;
+    public Long getId() {
+        return id;
     }
 
-    public void setDepartmentId(Long departmentId) {
-        this.departmentId = departmentId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getCompanyId() {
@@ -144,5 +144,22 @@ public class DepartmentVO implements Serializable {
 
     public void setStatus(Byte status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "DepartmentVO{" +
+                "id=" + id +
+                ", companyId=" + companyId +
+                ", userId=" + userId +
+                ", name='" + name + '\'' +
+                ", mnemonicCode='" + mnemonicCode + '\'' +
+                ", code='" + code + '\'' +
+                ", level='" + level + '\'' +
+                ", parentId=" + parentId +
+                ", master='" + master + '\'' +
+                ", descript='" + descript + '\'' +
+                ", status=" + status +
+                '}';
     }
 }

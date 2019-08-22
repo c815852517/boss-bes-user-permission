@@ -6,7 +6,7 @@ public class SystemParamVO implements Serializable {
     /**
      * 系统参数ID
      */
-    private Long systemParamId;
+    private Long id;
 
     /**
      * 组织机构ID
@@ -33,12 +33,12 @@ public class SystemParamVO implements Serializable {
      */
     private Byte status;
 
-    public Long getSystemParamId() {
-        return systemParamId;
+    public Long getId() {
+        return id;
     }
 
-    public void setSystemParamId(Long systemParamId) {
-        this.systemParamId = systemParamId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getOrgId() {
@@ -79,5 +79,17 @@ public class SystemParamVO implements Serializable {
 
     public void setStatus(Byte status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "SystemParamVO{" +
+                "id=" + id +
+                ", orgId=" + orgId +
+                ", paramType='" + paramType + '\'' +
+                ", param='" + param + '\'' +
+                ", value='" + value + '\'' +
+                ", status=" + status +
+                '}';
     }
 }

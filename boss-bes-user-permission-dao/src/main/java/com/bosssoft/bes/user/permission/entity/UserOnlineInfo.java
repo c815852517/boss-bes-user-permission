@@ -5,13 +5,13 @@ import java.util.Date;
 
 /**
  * t_user_online_info
- * @author 
+ * @author
  */
 public class UserOnlineInfo implements Serializable {
     /**
      * 在线ID
      */
-    private Long onlineId;
+    private Long id;
 
     /**
      * 用户ID
@@ -55,12 +55,12 @@ public class UserOnlineInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getOnlineId() {
-        return onlineId;
+    public Long getId() {
+        return id;
     }
 
-    public void setOnlineId(Long onlineId) {
-        this.onlineId = onlineId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getUserId() {
@@ -130,7 +130,7 @@ public class UserOnlineInfo implements Serializable {
     @Override
     public String toString() {
         return "UserOnlineInfo{" +
-                "onlineId=" + onlineId +
+                "id=" + id +
                 ", userId=" + userId +
                 ", code='" + code + '\'' +
                 ", name='" + name + '\'' +

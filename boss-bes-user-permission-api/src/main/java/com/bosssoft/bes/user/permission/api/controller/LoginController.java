@@ -6,6 +6,7 @@ import com.bosssoft.bes.user.permission.pojo.vo.UserPermission;
 import com.bosssoft.bes.user.permission.pojo.vo.UserVO;
 import com.bosssoft.bes.user.permission.service.LoginService;
 import com.bosssoft.bes.user.permission.utils.JwtUtil;
+import common.CommonField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import protocol.CommonRequest;
@@ -18,17 +19,20 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/login")
-@CrossOrigin(allowedHeaders = "*",allowCredentials = "true" )
+//@CrossOrigin(allowedHeaders = "*",allowCredentials = "true" )
 public class LoginController {
 
     /**
      *
      */
+
+
     @Autowired
     private LoginService loginService;
 
     @PostMapping(value = "/check")
     public CommonResponse check(@RequestBody Object user){
+        System.out.println(user);
         UserVO userVO = JSON.parseObject( JSON.toJSONString(user),UserVO.class);
         UserPermission userPermission = loginService.checkUser(userVO);
         System.out.println(userPermission);

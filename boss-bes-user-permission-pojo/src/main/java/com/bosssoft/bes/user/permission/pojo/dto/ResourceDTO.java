@@ -1,65 +1,65 @@
-package com.bosssoft.bes.user.permission.entity;
+package com.bosssoft.bes.user.permission.pojo.dto;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * t_department
+ * t_resource
  * @author
  */
-public class Department implements Serializable {
+public class ResourceDTO implements Serializable {
     /**
-     * 部门ID
+     * 资源ID
      */
     private Long id;
 
     /**
-     * 公司ID
-     */
-    private Long companyId;
-
-    /**
-     * 用户ID
-     */
-    private Long userId;
-
-    /**
-     * 部门名称
+     * 节点名称
      */
     private String name;
 
     /**
-     * 助记码
-     */
-    private String mnemonicCode;
-
-    /**
-     * 部门编号
+     * 编号
      */
     private String code;
 
     /**
-     * 部门级别
-     */
-    private String level;
-
-    /**
-     * 上级部门
+     * 父亲节点
      */
     private Long parentId;
 
     /**
-     * 负责人
+     * URL
      */
-    private String master;
+    private String url;
 
     /**
-     * 部门描述
+     * 打开图标
      */
-    private String descript;
+    private String openImg;
 
     /**
-     * 状态
+     * 关闭图标
+     */
+    private String closeImg;
+
+    /**
+     * 资源类型
+     */
+    private Byte resourceType;
+
+    /**
+     * 叶子节点
+     */
+    private Byte leaf;
+
+    /**
+     * 备注
+     */
+    private String remark;
+
+    /**
+     * 状态位
      */
     private Byte status;
 
@@ -98,36 +98,12 @@ public class Department implements Serializable {
         this.id = id;
     }
 
-    public Long getCompanyId() {
-        return companyId;
-    }
-
-    public void setCompanyId(Long companyId) {
-        this.companyId = companyId;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getMnemonicCode() {
-        return mnemonicCode;
-    }
-
-    public void setMnemonicCode(String mnemonicCode) {
-        this.mnemonicCode = mnemonicCode;
     }
 
     public String getCode() {
@@ -138,14 +114,6 @@ public class Department implements Serializable {
         this.code = code;
     }
 
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
     public Long getParentId() {
         return parentId;
     }
@@ -154,20 +122,52 @@ public class Department implements Serializable {
         this.parentId = parentId;
     }
 
-    public String getMaster() {
-        return master;
+    public String getUrl() {
+        return url;
     }
 
-    public void setMaster(String master) {
-        this.master = master;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public String getDescript() {
-        return descript;
+    public String getOpenImg() {
+        return openImg;
     }
 
-    public void setDescript(String descript) {
-        this.descript = descript;
+    public void setOpenImg(String openImg) {
+        this.openImg = openImg;
+    }
+
+    public String getCloseImg() {
+        return closeImg;
+    }
+
+    public void setCloseImg(String closeImg) {
+        this.closeImg = closeImg;
+    }
+
+    public Byte getResourceType() {
+        return resourceType;
+    }
+
+    public void setResourceType(Byte resourceType) {
+        this.resourceType = resourceType;
+    }
+
+    public Byte getLeaf() {
+        return leaf;
+    }
+
+    public void setLeaf(Byte leaf) {
+        this.leaf = leaf;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public Byte getStatus() {
@@ -220,17 +220,17 @@ public class Department implements Serializable {
 
     @Override
     public String toString() {
-        return "Department{" +
+        return "ResourceDTO{" +
                 "id=" + id +
-                ", companyId=" + companyId +
-                ", userId=" + userId +
                 ", name='" + name + '\'' +
-                ", mnemonicCode='" + mnemonicCode + '\'' +
                 ", code='" + code + '\'' +
-                ", level='" + level + '\'' +
                 ", parentId=" + parentId +
-                ", master='" + master + '\'' +
-                ", descript='" + descript + '\'' +
+                ", url='" + url + '\'' +
+                ", openImg='" + openImg + '\'' +
+                ", closeImg='" + closeImg + '\'' +
+                ", resourceType=" + resourceType +
+                ", leaf=" + leaf +
+                ", remark='" + remark + '\'' +
                 ", status=" + status +
                 ", createdBy=" + createdBy +
                 ", createdTime=" + createdTime +

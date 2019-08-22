@@ -1,37 +1,42 @@
-package com.bosssoft.bes.user.permission.entity;
+package com.bosssoft.bes.user.permission.pojo.dto;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * t_system_param
+ * t_organization
  * @author
  */
-public class SystemParam implements Serializable {
+public class OrganizationDTO implements Serializable {
     /**
-     * 系统参数ID
+     * 组织机构ID
      */
     private Long id;
 
     /**
-     * 组织机构ID
+     * 机构名
      */
-    private Long orgId;
+    private String name;
 
     /**
-     * 参数类型
+     * 机构代码
      */
-    private String paramType;
+    private String code;
 
     /**
-     * 参数项
+     * 负责人
      */
-    private String param;
+    private String master;
 
     /**
-     * 参数值
+     * 电话
      */
-    private String value;
+    private String tel;
+
+    /**
+     * 地址
+     */
+    private String address;
 
     /**
      * 状态位
@@ -73,36 +78,44 @@ public class SystemParam implements Serializable {
         this.id = id;
     }
 
-    public Long getOrgId() {
-        return orgId;
+    public String getName() {
+        return name;
     }
 
-    public void setOrgId(Long orgId) {
-        this.orgId = orgId;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getParamType() {
-        return paramType;
+    public String getCode() {
+        return code;
     }
 
-    public void setParamType(String paramType) {
-        this.paramType = paramType;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public String getParam() {
-        return param;
+    public String getMaster() {
+        return master;
     }
 
-    public void setParam(String param) {
-        this.param = param;
+    public void setMaster(String master) {
+        this.master = master;
     }
 
-    public String getValue() {
-        return value;
+    public String getTel() {
+        return tel;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Byte getStatus() {
@@ -155,12 +168,13 @@ public class SystemParam implements Serializable {
 
     @Override
     public String toString() {
-        return "SystemParam{" +
+        return "OrganizationDTO{" +
                 "id=" + id +
-                ", orgId=" + orgId +
-                ", paramType='" + paramType + '\'' +
-                ", param='" + param + '\'' +
-                ", value='" + value + '\'' +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", master='" + master + '\'' +
+                ", tel='" + tel + '\'' +
+                ", address='" + address + '\'' +
                 ", status=" + status +
                 ", createdBy=" + createdBy +
                 ", createdTime=" + createdTime +

@@ -5,13 +5,13 @@ import java.util.Date;
 
 /**
  * t_organization
- * @author 
+ * @author
  */
 public class Organization implements Serializable {
     /**
      * 组织机构ID
      */
-    private Long orgId;
+    private Long id;
 
     /**
      * 机构名
@@ -70,12 +70,12 @@ public class Organization implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getOrgId() {
-        return orgId;
+    public Long getId() {
+        return id;
     }
 
-    public void setOrgId(Long orgId) {
-        this.orgId = orgId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -169,7 +169,7 @@ public class Organization implements Serializable {
     @Override
     public String toString() {
         return "Organization{" +
-                "orgId=" + orgId +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", code='" + code + '\'' +
                 ", master='" + master + '\'' +

@@ -5,13 +5,13 @@ import java.util.Date;
 
 /**
  * t_role
- * @author 
+ * @author
  */
 public class Role implements Serializable {
     /**
      * 角色ID
      */
-    private Long roleId;
+    private Long id;
 
     /**
      * 公司ID
@@ -70,12 +70,12 @@ public class Role implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getRoleId() {
-        return roleId;
+    public Long getId() {
+        return id;
     }
 
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getCompanyId() {
@@ -169,7 +169,7 @@ public class Role implements Serializable {
     @Override
     public String toString() {
         return "Role{" +
-                "roleId=" + roleId +
+                "id=" + id +
                 ", companyId=" + companyId +
                 ", orgId=" + orgId +
                 ", name='" + name + '\'' +

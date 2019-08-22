@@ -1,37 +1,47 @@
-package com.bosssoft.bes.user.permission.entity;
+package com.bosssoft.bes.user.permission.pojo.dto;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * t_system_param
+ * t_position
  * @author
  */
-public class SystemParam implements Serializable {
+public class PositionDTO implements Serializable {
     /**
-     * 系统参数ID
+     * 职位ID
      */
     private Long id;
 
     /**
-     * 组织机构ID
+     * 资源ID
      */
-    private Long orgId;
+    private Long resourceId;
 
     /**
-     * 参数类型
+     * 公司ID
      */
-    private String paramType;
+    private Long companyId;
 
     /**
-     * 参数项
+     * 用户ID
      */
-    private String param;
+    private Long userId;
 
     /**
-     * 参数值
+     * 职位名称
      */
-    private String value;
+    private String name;
+
+    /**
+     * 职位编号
+     */
+    private String code;
+
+    /**
+     * 备注
+     */
+    private String remark;
 
     /**
      * 状态位
@@ -56,7 +66,7 @@ public class SystemParam implements Serializable {
     /**
      * 修改时间
      */
-    private Date updatedTime;
+    private Long updatedTime;
 
     /**
      * 版本
@@ -73,36 +83,52 @@ public class SystemParam implements Serializable {
         this.id = id;
     }
 
-    public Long getOrgId() {
-        return orgId;
+    public Long getResourceId() {
+        return resourceId;
     }
 
-    public void setOrgId(Long orgId) {
-        this.orgId = orgId;
+    public void setResourceId(Long resourceId) {
+        this.resourceId = resourceId;
     }
 
-    public String getParamType() {
-        return paramType;
+    public Long getCompanyId() {
+        return companyId;
     }
 
-    public void setParamType(String paramType) {
-        this.paramType = paramType;
+    public void setCompanyId(Long companyId) {
+        this.companyId = companyId;
     }
 
-    public String getParam() {
-        return param;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setParam(String param) {
-        this.param = param;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getValue() {
-        return value;
+    public String getName() {
+        return name;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public Byte getStatus() {
@@ -137,11 +163,11 @@ public class SystemParam implements Serializable {
         this.updatedBy = updatedBy;
     }
 
-    public Date getUpdatedTime() {
+    public Long getUpdatedTime() {
         return updatedTime;
     }
 
-    public void setUpdatedTime(Date updatedTime) {
+    public void setUpdatedTime(Long updatedTime) {
         this.updatedTime = updatedTime;
     }
 
@@ -155,12 +181,14 @@ public class SystemParam implements Serializable {
 
     @Override
     public String toString() {
-        return "SystemParam{" +
+        return "PositionDTO{" +
                 "id=" + id +
-                ", orgId=" + orgId +
-                ", paramType='" + paramType + '\'' +
-                ", param='" + param + '\'' +
-                ", value='" + value + '\'' +
+                ", resourceId=" + resourceId +
+                ", companyId=" + companyId +
+                ", userId=" + userId +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", remark='" + remark + '\'' +
                 ", status=" + status +
                 ", createdBy=" + createdBy +
                 ", createdTime=" + createdTime +

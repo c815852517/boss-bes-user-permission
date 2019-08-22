@@ -1,4 +1,4 @@
-package com.bosssoft.bes.user.permission.entity;
+package com.bosssoft.bes.user.permission.pojo.dto;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -7,7 +7,7 @@ import java.util.Date;
  * t_user
  * @author
  */
-public class User implements Serializable {
+public class UserDTO implements Serializable {
     /**
      * 用户ID
      */

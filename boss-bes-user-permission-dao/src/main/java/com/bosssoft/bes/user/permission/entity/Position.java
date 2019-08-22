@@ -5,13 +5,13 @@ import java.util.Date;
 
 /**
  * t_position
- * @author 
+ * @author
  */
 public class Position implements Serializable {
     /**
      * 职位ID
      */
-    private Long positionId;
+    private Long id;
 
     /**
      * 资源ID
@@ -75,12 +75,12 @@ public class Position implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getPositionId() {
-        return positionId;
+    public Long getId() {
+        return id;
     }
 
-    public void setPositionId(Long positionId) {
-        this.positionId = positionId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getResourceId() {
@@ -182,7 +182,7 @@ public class Position implements Serializable {
     @Override
     public String toString() {
         return "Position{" +
-                "positionId=" + positionId +
+                "id=" + id +
                 ", resourceId=" + resourceId +
                 ", companyId=" + companyId +
                 ", userId=" + userId +

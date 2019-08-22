@@ -13,10 +13,10 @@ import java.util.List;
 @org.apache.ibatis.annotations.Mapper
 public interface LoginMapper extends Mapper<User> {
 
-    @Select("select a.user_id,a.code,a.name,b.role_id,org_id,company_id from t_user a,t_user_role b,t_role c " +
-            "where a.code = #{code} and a.password = #{password} and a.user_id = b.user_id and b.role_id = c.role_id")
+    @Select("select a.id,a.code,a.name,b.role_id,org_id,company_id from t_user a,t_user_role b,t_role c " +
+            "where a.code = #{code} and a.password = #{password} and a.id = b.user_id and b.role_id = c.id")
     UserPermission checkUser(UserVO userVO);
 
-    @Select("select a.name,a.profile_picture,b.role_id from t_user a,t_user_role b where a.user_id = #{userId} and a.user_id = b.user_id ")
+    @Select("select a.name,a.profile_picture,b.role_id from t_user a,t_user_role b where a.id = #{Id} and a.id = b.user_id ")
     UserInfo getUserInfo(UserVO userVO);
 }

@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value = "/login")
+@RequestMapping(value = "/boss/bes/user/login")
 //@CrossOrigin(allowedHeaders = "*",allowCredentials = "true" )
 public class LoginController {
 

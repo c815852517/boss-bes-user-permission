@@ -24,6 +24,11 @@ public class DepartmentVO implements Serializable {
     private String name;
 
     /**
+     * 上级部门名
+     */
+    private String parentDepartment;
+
+    /**
      * 助记码
      */
     private String mnemonicCode;
@@ -34,7 +39,7 @@ public class DepartmentVO implements Serializable {
     private String code;
 
     /**
-     * 部门级别
+     * 部门等级
      */
     private String level;
 
@@ -146,6 +151,14 @@ public class DepartmentVO implements Serializable {
         this.status = status;
     }
 
+    public String getParentDepartment() {
+        return parentDepartment;
+    }
+
+    public void setParentDepartment(String parentDepartment) {
+        this.parentDepartment = parentDepartment;
+    }
+
     @Override
     public String toString() {
         return "DepartmentVO{" +
@@ -153,6 +166,7 @@ public class DepartmentVO implements Serializable {
                 ", companyId=" + companyId +
                 ", userId=" + userId +
                 ", name='" + name + '\'' +
+                ", parentDepartment='" + parentDepartment + '\'' +
                 ", mnemonicCode='" + mnemonicCode + '\'' +
                 ", code='" + code + '\'' +
                 ", level='" + level + '\'' +

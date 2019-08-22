@@ -40,6 +40,11 @@ public class UserVO implements Serializable {
     private String profilePicture;
 
     /**
+     * 角色名
+     */
+    private String roleName;
+
+    /**
      * 性别
      */
     private Byte sex;
@@ -48,6 +53,11 @@ public class UserVO implements Serializable {
      * 生日
      */
     private Date birthday;
+
+    /**
+     * 职位名
+     */
+    private String positionName;
 
     /**
      * 电话
@@ -78,8 +88,8 @@ public class UserVO implements Serializable {
         return id;
     }
 
-    public void setId(Long Id) {
-        this.id = Id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getPositionId() {
@@ -186,6 +196,22 @@ public class UserVO implements Serializable {
         this.profilePicture = profilePicture;
     }
 
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public String getPositionName() {
+        return positionName;
+    }
+
+    public void setPositionName(String positionName) {
+        this.positionName = positionName;
+    }
+
     @Override
     public String toString() {
         return "UserVO{" +
@@ -196,8 +222,10 @@ public class UserVO implements Serializable {
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", profilePicture='" + profilePicture + '\'' +
+                ", roleName='" + roleName + '\'' +
                 ", sex=" + sex +
                 ", birthday=" + birthday +
+                ", positionName='" + positionName + '\'' +
                 ", tel='" + tel + '\'' +
                 ", email='" + email + '\'' +
                 ", other='" + other + '\'' +

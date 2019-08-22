@@ -24,14 +24,24 @@ public class RoleVO implements Serializable {
     private String name;
 
     /**
-     * 角色代码
+     * 角色代号
      */
     private String code;
 
     /**
-     * 备注
+     * 角色备注
      */
     private String remark;
+
+    /**
+     * 所属机构
+     */
+    private String orgName;
+
+    /**
+     * 所属公司
+     */
+    private String companyName;
 
     /**
      * 状态位
@@ -94,6 +104,22 @@ public class RoleVO implements Serializable {
         this.status = status;
     }
 
+    public String getOrgName() {
+        return orgName;
+    }
+
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
     @Override
     public String toString() {
         return "RoleVO{" +
@@ -103,6 +129,8 @@ public class RoleVO implements Serializable {
                 ", name='" + name + '\'' +
                 ", code='" + code + '\'' +
                 ", remark='" + remark + '\'' +
+                ", orgName='" + orgName + '\'' +
+                ", companyName='" + companyName + '\'' +
                 ", status=" + status +
                 '}';
     }

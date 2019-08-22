@@ -59,6 +59,11 @@ public class CompanyVO implements Serializable {
     private String address;
 
     /**
+     * 所属机构
+     */
+    private String orgName;
+
+    /**
      * 邮箱
      */
     private String email;
@@ -185,6 +190,14 @@ public class CompanyVO implements Serializable {
         this.status = status;
     }
 
+    public String getOrgName() {
+        return orgName;
+    }
+
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
+    }
+
     @Override
     public String toString() {
         return "CompanyVO{" +
@@ -199,6 +212,7 @@ public class CompanyVO implements Serializable {
                 ", fax='" + fax + '\'' +
                 ", tel='" + tel + '\'' +
                 ", address='" + address + '\'' +
+                ", orgName='" + orgName + '\'' +
                 ", email='" + email + '\'' +
                 ", website='" + website + '\'' +
                 ", status=" + status +

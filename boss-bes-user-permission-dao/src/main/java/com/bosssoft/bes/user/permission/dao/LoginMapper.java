@@ -17,6 +17,6 @@ public interface LoginMapper extends Mapper<User> {
             "where a.code = #{code} and a.password = #{password} and a.id = b.user_id and b.role_id = c.id")
     UserPermission checkUser(UserVO userVO);
 
-    @Select("select a.name,a.profile_picture,b.role_id from t_user a,t_user_role b where a.id = #{Id} and a.id = b.user_id ")
+    @Select("select a.name,a.profile_picture,b.role_id from t_user a,t_user_role b where a.id = #{id} and a.id = b.user_id ")
     UserInfo getUserInfo(UserVO userVO);
 }

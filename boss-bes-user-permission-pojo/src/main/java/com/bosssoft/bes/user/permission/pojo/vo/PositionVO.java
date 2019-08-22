@@ -21,7 +21,13 @@ public class PositionVO implements Serializable {
     /**
      * 用户ID
      */
+
     private Long userId;
+
+    /**
+     * 公司名
+     */
+    private String companyName;
 
     /**
      * 职位名称
@@ -42,6 +48,29 @@ public class PositionVO implements Serializable {
      * 状态位
      */
     private Byte status;
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    @Override
+    public String toString() {
+        return "PositionVO{" +
+                "id=" + id +
+                ", resourceId=" + resourceId +
+                ", companyId=" + companyId +
+                ", userId=" + userId +
+                ", companyName='" + companyName + '\'' +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", remark='" + remark + '\'' +
+                ", status=" + status +
+                '}';
+    }
 
     public Long getId() {
         return id;
@@ -107,17 +136,4 @@ public class PositionVO implements Serializable {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "PositionVO{" +
-                "id=" + id +
-                ", resourceId=" + resourceId +
-                ", companyId=" + companyId +
-                ", userId=" + userId +
-                ", name='" + name + '\'' +
-                ", code='" + code + '\'' +
-                ", remark='" + remark + '\'' +
-                ", status=" + status +
-                '}';
-    }
 }

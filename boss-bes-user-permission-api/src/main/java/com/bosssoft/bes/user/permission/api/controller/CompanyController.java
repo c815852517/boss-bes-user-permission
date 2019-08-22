@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/boss/bes/user/company")
+//@CrossOrigin(allowedHeaders = "*",allowCredentials = "true" )
 public class CompanyController {
 
     @Autowired

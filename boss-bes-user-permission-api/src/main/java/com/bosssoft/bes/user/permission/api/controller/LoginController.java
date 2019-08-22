@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import protocol.CommonRequest;
 import protocol.CommonResponse;
 import protocol.RequestHead;
+import utils.Converter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,8 +27,8 @@ public class LoginController {
     private LoginService loginService;
 
     @PostMapping(value = "/check")
-    public CommonResponse check(@RequestBody CommonRequest commonRequest){
-        UserVO userVO = JSON.parseObject( JSON.toJSONString(commonRequest.getBody().getData()),UserVO.class);
+    public CommonResponse check(@RequestBody Object user){
+        UserVO userVO = JSON.parseObject( JSON.toJSONString(user),UserVO.class);
         UserPermission userPermission = loginService.checkUser(userVO);
         String token = JwtUtil.createJwt(userPermission);
         Map<String,Object> data = new HashMap<String, Object>();

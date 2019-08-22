@@ -7,14 +7,11 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.bosssoft.bes.user.permission.pojo.vo.UserPermission;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtBuilder;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import org.apache.tomcat.util.codec.binary.Base64;
-
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
+import exception.BusinessException;
+import exception.EnumException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +26,7 @@ import java.util.Map;
  */
 public class JwtUtil {
 
+    private static Logger log = LoggerFactory.getLogger(JwtUtil.class);
     public static final String KEY = "022bdc63c3c5a45879ee6581508b9d03adfec4a4658c0ab3d722e50c91a351c42c231cf43bb8f86998202bd301ec52239a74fc0c9a9aeccce604743367c9646b";
     private static String ISSUER = "sys_user";
     private static String UID = "userId";
@@ -85,6 +83,15 @@ public class JwtUtil {
         Algorithm algorithm = Algorithm.HMAC256(KEY);
         JWTVerifier verifier = JWT.require(algorithm).withIssuer(ISSUER).build();
         DecodedJWT jwt =  verifier.verify(token);
+        long nowMillis = System.currentTimeMillis();
+        Date now = new Date(nowMillis);
+        Date expireTime = jwt.getExpiresAt();
+        int result = expireTime.compareTo(now);
+        if(result < 0){
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+            log.info("token已过期 ======= token的过期时间："+df.format(expireTime));
+            throw new BusinessException(EnumException.SERVICE_TOKEN_EXPIRED);
+        }
         UserPermission userPermission = new UserPermission();
         Map<String, Claim> map = jwt.getClaims();
         Map<String, String> resultMap = new HashMap<>();
@@ -97,28 +104,5 @@ public class JwtUtil {
         userPermission.setRoleId(Long.valueOf(resultMap.get(ROLE_ID)));
         return userPermission;
     }
-
-    /**
-     * 检查token
-     * @return
-     *//*
-    public static boolean checkToken(String jwtToken, ObjectMapper objectMapper) throws Exception {
-        //TODO 根据自己的业务修改
-        Claims claims = JwtUtil.parseJwt(jwtToken);
-        String subject = claims.getSubject();
-        JwtModel jwtModel = objectMapper.readValue(subject, JwtModel.class);
-        *//*
-            TODO 对jwt里面的用户信息做判断
-            根据自己的业务编写
-         *//*
-
-        *//*
-            获取token的过期时间，和当前时间作比较，如果小于当前时间，则token过期
-         *//*
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        Date expiration = claims.getExpiration();
-        log.info("======== token的过期时间："+df.format(expiration));
-        return true;
-    }*/
 
 }

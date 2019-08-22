@@ -17,7 +17,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value = "/boss/bes/user/login")
+@RequestMapping(value = "/login")
+@CrossOrigin(allowedHeaders = "*",allowCredentials = "true" )
 public class LoginController {
 
     /**
@@ -50,6 +51,6 @@ public class LoginController {
 
     @PostMapping(value = "/logout")
     public CommonResponse logout(){
-        return CommonResponse.create(null,"200",null,true,null);
+        return CommonResponse.create(null,"200","success",true,null);
     }
 }

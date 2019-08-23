@@ -27,7 +27,7 @@ import java.util.Map;
 public class JwtUtil {
 
     private static Logger log = LoggerFactory.getLogger(JwtUtil.class);
-    public static final String KEY = "022bdc63c3c5a45879ee6581508b9d03adfec4a4658c0ab3d722e50c91a351c42c231cf43bb8f86998202bd301ec52239a74fc0c9a9aeccce604743367c9646b";
+    private static final String KEY = "022bdc63c3c5a45879ee6581508b9d03adfec4a4658c0ab3d722e50c91a351c42c231cf43bb8f86998202bd301ec52239a74fc0c9a9aeccce604743367c9646b";
     private static String ISSUER = "sys_user";
     private static String ID = "id";
     private static String NAME = "name";

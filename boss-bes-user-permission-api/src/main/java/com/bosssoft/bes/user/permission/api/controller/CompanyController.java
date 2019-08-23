@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.bosssoft.bes.user.permission.entity.Company;
 import com.bosssoft.bes.user.permission.pojo.vo.CompanyVO;
 import com.bosssoft.bes.user.permission.service.CompanyService;
+import common.AbstractBaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import protocol.CommonRequest;

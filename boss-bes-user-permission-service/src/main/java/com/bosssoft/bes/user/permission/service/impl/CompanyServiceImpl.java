@@ -1,5 +1,6 @@
 package com.bosssoft.bes.user.permission.service.impl;
 
+import annotations.FullCommonField;
 import com.bosssoft.bes.user.permission.dao.CompanyMapper;
 import com.bosssoft.bes.user.permission.entity.Company;
 import com.bosssoft.bes.user.permission.service.CompanyService;
@@ -9,11 +10,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CompanyServiceImpl implements CompanyService {
+public class CompanyServiceImpl implements CompanyService{
 
     @Autowired
     CompanyMapper companyMapper;
-
+    @FullCommonField
     @Override
     public boolean saveCompany(Company company) {
         int a = companyMapper.insert(company);

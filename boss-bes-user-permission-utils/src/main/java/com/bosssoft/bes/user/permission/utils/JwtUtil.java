@@ -29,7 +29,7 @@ public class JwtUtil {
     private static Logger log = LoggerFactory.getLogger(JwtUtil.class);
     public static final String KEY = "022bdc63c3c5a45879ee6581508b9d03adfec4a4658c0ab3d722e50c91a351c42c231cf43bb8f86998202bd301ec52239a74fc0c9a9aeccce604743367c9646b";
     private static String ISSUER = "sys_user";
-    private static String UID = "userId";
+    private static String ID = "id";
     private static String NAME = "name";
     private static String COMPANY_ID = "companyId";
     private static String ORGANIZATION_ID = "orgId";
@@ -49,7 +49,7 @@ public class JwtUtil {
         try {
             // 创建payload的私有声明（根据特定的业务需要添加，如果要拿这个做验证，一般是需要和jwt的接收方提前沟通好验证方式的）
             Map<String, String> claims = new HashMap<String, String>();
-            claims.put(UID, userPermission.getId().toString());
+            claims.put(ID, userPermission.getId().toString());
             claims.put(ORGANIZATION_ID, userPermission.getOrgId().toString());
             claims.put(COMPANY_ID,userPermission.getCompanyId().toString());
             claims.put(NAME,userPermission.getName());
@@ -97,7 +97,7 @@ public class JwtUtil {
         Map<String, String> resultMap = new HashMap<>();
         map.forEach((k,v) -> resultMap.put(k, v.asString()));
         System.out.println(resultMap);
-        userPermission.setId(Long.valueOf(resultMap.get(UID)));
+        userPermission.setId(Long.valueOf(resultMap.get(ID)));
         userPermission.setName(resultMap.get(NAME));
         userPermission.setCompanyId(Long.valueOf(resultMap.get(COMPANY_ID)));
         userPermission.setOrgId(Long.valueOf(resultMap.get(ORGANIZATION_ID)));

@@ -8,14 +8,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="api" />
         <module name="boss-bes-user-permission-api" />
-        <module name="user.permission.utils" />
-        <module name="user.permission.dao" />
-        <module name="boss-bes-user-permission-pojo" />
         <module name="boss-bes-user-permission-dao" />
-        <module name="user.permission.pojo" />
+        <module name="boss-bes-user-permission-pojo" />
         <module name="boss-bes-user-permission-service" />
-        <module name="user.permission.service" />
         <module name="boss-bes-user-permission-utils" />
+        <module name="user.permission.dao" />
+        <module name="user.permission.pojo" />
+        <module name="user.permission.service" />
+        <module name="user.permission.utils" />
       </profile>
     </annotationProcessing>
   </component>

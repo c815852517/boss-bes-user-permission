@@ -21,11 +21,6 @@ public class Company implements Serializable {
     private Long orgId;
 
     /**
-     * 职位ID
-     */
-    private Long positionId;
-
-    /**
      * 公司名
      */
     private String name;
@@ -121,14 +116,6 @@ public class Company implements Serializable {
 
     public void setOrgId(Long orgId) {
         this.orgId = orgId;
-    }
-
-    public Long getPositionId() {
-        return positionId;
-    }
-
-    public void setPositionId(Long positionId) {
-        this.positionId = positionId;
     }
 
     public String getName() {
@@ -264,7 +251,6 @@ public class Company implements Serializable {
         return "Company{" +
                 "id=" + id +
                 ", orgId=" + orgId +
-                ", positionId=" + positionId +
                 ", name='" + name + '\'' +
                 ", code='" + code + '\'' +
                 ", mnemonicCode='" + mnemonicCode + '\'' +

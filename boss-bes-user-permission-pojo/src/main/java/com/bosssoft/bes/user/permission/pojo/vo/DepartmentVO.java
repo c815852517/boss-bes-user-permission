@@ -14,11 +14,6 @@ public class DepartmentVO implements Serializable {
     private Long companyId;
 
     /**
-     * 用户ID
-     */
-    private Long userId;
-
-    /**
      * 部门名称
      */
     private String name;
@@ -77,14 +72,6 @@ public class DepartmentVO implements Serializable {
 
     public void setCompanyId(Long companyId) {
         this.companyId = companyId;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
     }
 
     public String getName() {
@@ -164,7 +151,6 @@ public class DepartmentVO implements Serializable {
         return "DepartmentVO{" +
                 "id=" + id +
                 ", companyId=" + companyId +
-                ", userId=" + userId +
                 ", name='" + name + '\'' +
                 ", parentDepartment='" + parentDepartment + '\'' +
                 ", mnemonicCode='" + mnemonicCode + '\'' +

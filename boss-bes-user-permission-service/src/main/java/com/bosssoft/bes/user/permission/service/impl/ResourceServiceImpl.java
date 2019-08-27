@@ -1,46 +1,75 @@
 package com.bosssoft.bes.user.permission.service.impl;
 
+
+import annotations.EnumOperation;
+import annotations.FullCommonField;
 import com.bosssoft.bes.user.permission.dao.ResourceMapper;
+import com.bosssoft.bes.user.permission.pojo.dto.ResourceDTO;
 import com.bosssoft.bes.user.permission.entity.Resource;
 import com.bosssoft.bes.user.permission.service.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import utils.Converter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ResourceServiceImpl implements ResourceService {
+public class ResourceServiceImpl implements ResourceService<ResourceDTO> {
 
     @Autowired
     ResourceMapper resourceMapper;
+    @Autowired
+    Converter converter;
 
     @Override
-    public boolean saveResource(Resource resource) {
-        int a = resourceMapper.insert(resource);
-        return true;
-    }
+    @FullCommonField(dataCenterId = 2,machineId = 1,operation = EnumOperation.INSERT)
+    public boolean save(ResourceDTO resourceDTO) {
+        Resource resource = new Resource();
+        converter.copyProperties(resourceDTO,resource);
+        try {
+            System.out.println(resourceMapper.insert(resource));
+        } catch (Exception e) {
 
-    @Override
-    public boolean deleteResource(List<Resource> resource) {
-        for(int i = 0;i<resource.size();i++){
-            resourceMapper.delete(resource.get(i));
         }
-        return true;
+        return false;
     }
 
     @Override
-    public boolean updateResource(Resource resource) {
-        resourceMapper.updateByPrimaryKeySelective(resource);
-        return true;
+    public ResourceDTO queryById(Long aLong) {
+        return null;
     }
 
     @Override
-    public List<Resource> queryResource(Resource resource) {
-        return resourceMapper.queryResourceInfo(resource);
+    public List<ResourceDTO> query(ResourceDTO resourceDTO) {
+        Resource resource = new Resource();
+        converter.copyProperties(resourceDTO,resource);
+        List<Resource> resourceList = resourceMapper.selectAll();
+        List<ResourceDTO> resourceDTOList = new ArrayList<ResourceDTO>();
+        for (Resource newResource : resourceList) {
+            ResourceDTO newResourceDTO = new ResourceDTO();
+            converter.copyProperties(newResource,newResourceDTO);
+            resourceDTOList.add(newResourceDTO);
+        }
+        System.out.println(resourceDTO);
+        return resourceDTOList;
     }
 
     @Override
-    public List<Resource> getResourceInfo() {
-        return resourceMapper.selectAll();
+    @FullCommonField(dataCenterId = 2,machineId = 1,operation = EnumOperation.UPDATE)
+    public boolean update(ResourceDTO resourceDTO) {
+        Resource resource = new Resource();
+        converter.copyProperties(resourceDTO,resource);
+        try {
+            System.out.println(resourceMapper.updateByPrimaryKey(resource));
+        } catch (Exception e) {
+
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteById(Long aLong) {
+        return false;
     }
 }

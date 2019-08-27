@@ -2,24 +2,22 @@ package com.bosssoft.bes.user.permission.api.controller;
 
 
 import com.alibaba.fastjson.JSON;
-import com.bosssoft.bes.user.permission.pojo.vo.UserPermission;
 import com.bosssoft.bes.user.permission.pojo.vo.UserVO;
 import com.bosssoft.bes.user.permission.service.LoginService;
-import com.bosssoft.bes.user.permission.utils.JwtUtil;
 import common.CommonField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import utils.jwt.*;
 import protocol.CommonRequest;
 import protocol.CommonResponse;
 import protocol.RequestHead;
-import utils.Converter;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/boss/bes/user/login")
-//@CrossOrigin(allowedHeaders = "*",allowCredentials = "true" )
+//@CrossOrigin(allowedHeaders = "*",allowCredentials = "true" ,methods = {})
 public class LoginController {
 
     /**
@@ -48,6 +46,7 @@ public class LoginController {
         RequestHead head = JSON.parseObject( JSON.toJSONString(commonRequest.getHead()),RequestHead.class);
         String token = head.getToken();
         UserPermission userPermission = JwtUtil.parseJwt(token);
+        System.out.println(userPermission);
         UserVO userVO = new UserVO();
         userVO.setId(userPermission.getId());
         return CommonResponse.create(null,"200",null,true,loginService.getUserInfo(userVO));

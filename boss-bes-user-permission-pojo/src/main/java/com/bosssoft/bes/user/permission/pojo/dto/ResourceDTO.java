@@ -1,5 +1,7 @@
 package com.bosssoft.bes.user.permission.pojo.dto;
 
+import common.BaseDTO;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,12 +9,7 @@ import java.util.Date;
  * t_resource
  * @author
  */
-public class ResourceDTO implements Serializable {
-    /**
-     * 资源ID
-     */
-    private Long id;
-
+public class ResourceDTO extends BaseDTO implements Serializable {
     /**
      * 节点名称
      */
@@ -89,14 +86,6 @@ public class ResourceDTO implements Serializable {
     private Long version;
 
     private static final long serialVersionUID = 1L;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -178,50 +167,13 @@ public class ResourceDTO implements Serializable {
         this.status = status;
     }
 
-    public Long getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(Long createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Date getCreatedTime() {
-        return createdTime;
-    }
-
-    public void setCreatedTime(Date createdTime) {
-        this.createdTime = createdTime;
-    }
-
-    public Long getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(Long updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
-    public Date getUpdatedTime() {
-        return updatedTime;
-    }
-
-    public void setUpdatedTime(Date updatedTime) {
-        this.updatedTime = updatedTime;
-    }
-
-    public Long getVersion() {
-        return version;
-    }
-
-    public void setVersion(Long version) {
-        this.version = version;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     @Override
     public String toString() {
         return "ResourceDTO{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", code='" + code + '\'' +
                 ", parentId=" + parentId +

@@ -2,10 +2,10 @@ package com.bosssoft.bes.user.permission.dao;
 
 import com.bosssoft.bes.user.permission.entity.User;
 import com.bosssoft.bes.user.permission.pojo.vo.UserInfo;
-import com.bosssoft.bes.user.permission.pojo.vo.UserPermission;
 import com.bosssoft.bes.user.permission.pojo.vo.UserVO;
 import org.apache.ibatis.annotations.Select;
 import tk.mybatis.mapper.common.Mapper;
+import utils.jwt.UserPermission;
 
 import java.util.List;
 

@@ -1,14 +1,10 @@
 package com.bosssoft.bes.user.permission.service;
 
-import com.bosssoft.bes.user.permission.entity.Resource;
+import com.bosssoft.bes.user.permission.pojo.dto.ResourceDTO;
+import common.BaseDTO;
+import common.CommonService;
 
 import java.util.List;
 
-public interface ResourceService {
-    boolean saveResource(Resource resource);
-    boolean deleteResource(List<Resource> resource);
-    boolean updateResource(Resource resource);
-    List<Resource> queryResource(Resource resource);
-    List<Resource> getResourceInfo();
-
+public interface ResourceService<T extends BaseDTO> extends CommonService<T>{
 }

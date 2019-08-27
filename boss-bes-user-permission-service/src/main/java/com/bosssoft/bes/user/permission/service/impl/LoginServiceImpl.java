@@ -3,11 +3,11 @@ package com.bosssoft.bes.user.permission.service.impl;
 import com.bosssoft.bes.user.permission.dao.LoginMapper;
 import com.bosssoft.bes.user.permission.entity.User;
 import com.bosssoft.bes.user.permission.pojo.vo.UserInfo;
-import com.bosssoft.bes.user.permission.pojo.vo.UserPermission;
 import com.bosssoft.bes.user.permission.pojo.vo.UserVO;
 import com.bosssoft.bes.user.permission.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import utils.jwt.UserPermission;
 
 import java.util.List;
 

@@ -9,7 +9,11 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 @EnableAspectJAutoProxy
 @EnableEurekaClient
-@SpringBootApplication(scanBasePackages = {"utils","com.bosssoft.hr.train.bossbescommonlogging.annotation", "com.bosssoft.bes.user.permission.service","com.bosssoft.bes.user.permission.**.controller"})
+@SpringBootApplication(scanBasePackages = {"utils","com.bosssoft.hr.train.bossbescommonlogging.annotation",
+        "com.bosssoft.bes.user.permission.service",
+        "com.bosssoft.bes.user.permission.**.controller",
+        "utils",
+        "annotations"})
 @MapperScan(basePackages ="com.bosssoft.bes.user.permission.dao" )
 public class ApiApplication {
 
